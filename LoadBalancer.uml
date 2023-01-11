@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.apache.hadoop.hbase.master.LoadBalancer</OriginalElement>
+  <nodes>
+    <node x="0.0" y="340.0">org.apache.hadoop.hbase.master.balancer.LoadOnlyFavoredStochasticBalancer</node>
+    <node x="733.5" y="255.0">org.apache.hadoop.hbase.TestZooKeeper.MockLoadBalancer</node>
+    <node x="33.0" y="255.0">org.apache.hadoop.hbase.master.balancer.FavoredStochasticBalancer</node>
+    <node x="44.0" y="170.0">org.apache.hadoop.hbase.master.balancer.StochasticLoadBalancer</node>
+    <node x="463.0" y="170.0">org.apache.hadoop.hbase.favored.FavoredNodeLoadBalancer</node>
+    <node x="637.75" y="0.0">org.apache.hadoop.hbase.master.LoadBalancer</node>
+    <node x="286.0" y="170.0">org.apache.hadoop.hbase.master.balancer.TestBaseLoadBalancer.MockBalancer</node>
+    <node x="383.25" y="85.0">org.apache.hadoop.hbase.master.balancer.BaseLoadBalancer</node>
+    <node x="729.0" y="170.0">org.apache.hadoop.hbase.master.balancer.SimpleLoadBalancer</node>
+    <node x="861.25" y="85.0">org.apache.hadoop.hbase.master.balancer.MaintenanceLoadBalancer</node>
+    <node x="587.25" y="85.0">org.apache.hadoop.hbase.rsgroup.RSGroupBasedLoadBalancer</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.apache.hadoop.hbase.favored.FavoredNodeLoadBalancer" target="org.apache.hadoop.hbase.master.balancer.BaseLoadBalancer">
+      <point x="0.0" y="-17.5" />
+      <point x="586.0" y="150.0" />
+      <point x="498.25" y="150.0" />
+      <point x="23.0" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.rsgroup.RSGroupBasedLoadBalancer" target="org.apache.hadoop.hbase.master.LoadBalancer">
+      <point x="0.0" y="-17.5" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.master.balancer.LoadOnlyFavoredStochasticBalancer" target="org.apache.hadoop.hbase.master.balancer.FavoredStochasticBalancer">
+      <point x="0.0" y="-17.5" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.master.balancer.TestBaseLoadBalancer.MockBalancer" target="org.apache.hadoop.hbase.master.balancer.BaseLoadBalancer">
+      <point x="0.0" y="-17.5" />
+      <point x="364.5" y="150.0" />
+      <point x="452.25" y="150.0" />
+      <point x="-23.0" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.master.balancer.BaseLoadBalancer" target="org.apache.hadoop.hbase.master.LoadBalancer">
+      <point x="0.0" y="-17.5" />
+      <point x="475.25" y="60.0" />
+      <point x="663.25" y="60.0" />
+      <point x="-51.0" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.master.balancer.SimpleLoadBalancer" target="org.apache.hadoop.hbase.master.balancer.BaseLoadBalancer">
+      <point x="0.0" y="-17.5" />
+      <point x="829.0" y="140.0" />
+      <point x="544.25" y="140.0" />
+      <point x="69.0" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.TestZooKeeper.MockLoadBalancer" target="org.apache.hadoop.hbase.master.balancer.SimpleLoadBalancer">
+      <point x="0.0" y="-17.5" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.master.balancer.FavoredStochasticBalancer" target="org.apache.hadoop.hbase.master.balancer.StochasticLoadBalancer">
+      <point x="0.0" y="-17.5" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.master.balancer.MaintenanceLoadBalancer" target="org.apache.hadoop.hbase.master.LoadBalancer">
+      <point x="0.0" y="-17.5" />
+      <point x="982.25" y="60.0" />
+      <point x="765.25" y="60.0" />
+      <point x="51.0" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.master.balancer.StochasticLoadBalancer" target="org.apache.hadoop.hbase.master.balancer.BaseLoadBalancer">
+      <point x="0.0" y="-17.5" />
+      <point x="155.0" y="140.0" />
+      <point x="406.25" y="140.0" />
+      <point x="-69.0" y="17.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="382.5" y="102.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

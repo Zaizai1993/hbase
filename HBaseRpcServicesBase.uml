@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.apache.hadoop.hbase.HBaseRpcServicesBase</OriginalElement>
+  <nodes>
+    <node x="566.25" y="265.0">org.apache.hadoop.hbase.master.MasterRpcServices</node>
+    <node x="629.0" y="85.0">org.apache.hadoop.hbase.shaded.protobuf.generated.AdminProtos.AdminService.BlockingInterface</node>
+    <node x="460.00000000000006" y="0.0">org.apache.hadoop.hbase.conf.ConfigurationObserver</node>
+    <node x="829.0" y="85.0">org.apache.hadoop.hbase.shaded.protobuf.generated.RegistryProtos.ClientMetaService.BlockingInterface</node>
+    <node x="387.25000000000006" y="265.0">org.apache.hadoop.hbase.regionserver.RSRpcServices</node>
+    <node x="431.00000000000006" y="85.0">org.apache.hadoop.hbase.HBaseServerBase</node>
+    <node x="0.0" y="85.0">org.apache.hadoop.hbase.ipc.PriorityFunction</node>
+    <node x="456.25000000000006" y="180.0">org.apache.hadoop.hbase.HBaseRpcServicesBase</node>
+    <node x="191.00000000000006" y="85.0">org.apache.hadoop.hbase.ipc.HBaseRPCErrorHandler</node>
+    <node x="360.75000000000006" y="350.0">org.apache.hadoop.hbase.regionserver.TestScannerHeartbeatMessages.HeartbeatRPCServices</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.apache.hadoop.hbase.regionserver.TestScannerHeartbeatMessages.HeartbeatRPCServices" target="org.apache.hadoop.hbase.regionserver.RSRpcServices">
+      <point x="0.0" y="-17.5" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.HBaseServerBase" target="org.apache.hadoop.hbase.conf.ConfigurationObserver">
+      <point x="0.0" y="-17.5" />
+      <point x="519.5" y="60.0" />
+      <point x="514.5" y="60.0" />
+      <point x="-54.5" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.HBaseRpcServicesBase" target="org.apache.hadoop.hbase.conf.ConfigurationObserver">
+      <point x="30.71428571428578" y="-17.5" />
+      <point x="594.4642857142858" y="160.0" />
+      <point x="618.5" y="160.0" />
+      <point x="618.5" y="60.0" />
+      <point x="623.5" y="60.0" />
+      <point x="54.5" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.HBaseServerBase" target="org.apache.hadoop.hbase.HBaseRpcServicesBase">
+      <point x="44.25" y="17.5" />
+      <point x="0.0" y="-17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.HBaseRpcServicesBase" target="org.apache.hadoop.hbase.ipc.HBaseRPCErrorHandler">
+      <point x="-61.428571428571445" y="-17.5" />
+      <point x="502.3214285714286" y="150.0" />
+      <point x="301.00000000000006" y="150.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.HBaseRpcServicesBase" target="org.apache.hadoop.hbase.shaded.protobuf.generated.RegistryProtos.ClientMetaService.BlockingInterface">
+      <point x="92.14285714285711" y="-17.5" />
+      <point x="655.8928571428571" y="160.0" />
+      <point x="919.0" y="160.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.HBaseRpcServicesBase" target="org.apache.hadoop.hbase.ipc.PriorityFunction">
+      <point x="-92.14285714285711" y="-17.5" />
+      <point x="471.60714285714295" y="160.0" />
+      <point x="85.5" y="160.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.master.MasterRpcServices" target="org.apache.hadoop.hbase.HBaseRpcServicesBase">
+      <point x="0.0" y="-17.5" />
+      <point x="660.75" y="240.0" />
+      <point x="617.5" y="240.0" />
+      <point x="53.75" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.HBaseRpcServicesBase" target="org.apache.hadoop.hbase.HBaseServerBase">
+      <point x="-30.714285714285666" y="-17.5" />
+      <point x="533.0357142857144" y="140.0" />
+      <point x="475.25000000000006" y="140.0" />
+      <point x="-44.25" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.HBaseRpcServicesBase" target="org.apache.hadoop.hbase.shaded.protobuf.generated.AdminProtos.AdminService.BlockingInterface">
+      <point x="61.428571428571445" y="-17.5" />
+      <point x="625.1785714285716" y="150.0" />
+      <point x="719.0" y="150.0" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.regionserver.RSRpcServices" target="org.apache.hadoop.hbase.HBaseRpcServicesBase">
+      <point x="0.0" y="-17.5" />
+      <point x="466.75000000000006" y="240.0" />
+      <point x="510.00000000000006" y="240.0" />
+      <point x="-53.75" y="17.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="520.5" y="155.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

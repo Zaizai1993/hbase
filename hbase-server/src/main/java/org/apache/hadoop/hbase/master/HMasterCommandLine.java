@@ -220,6 +220,7 @@ public class HMasterCommandLine extends ServerCommandLine {
           conf.getInt(HConstants.ZK_SESSION_TIMEOUT + ".localHBaseCluster", 10*1000);
         conf.setInt(HConstants.ZK_SESSION_TIMEOUT, localZKClusterSessionTimeout);
         LOG.info("Starting a zookeeper cluster");
+        //启动zk
         int clientPort = zooKeeperCluster.startup(zkDataPath);
         if (clientPort != zkClientPort) {
           String errorMsg = "Could not start ZK at requested port of " +
@@ -239,6 +240,7 @@ public class HMasterCommandLine extends ServerCommandLine {
         conf.setIfUnset("hbase.master.start.timeout.localHBaseCluster", "300000");
         LOG.info("Starting up instance of localHBaseCluster; master=" + mastersCount +
           ", regionserversCount=" + regionServersCount);
+        //构建本地Hbase集群，默认一个HMaster一个HRegionServer,由本地JVM工具类JVMClusterUtil持有
         LocalHBaseCluster cluster = new LocalHBaseCluster(conf, mastersCount, regionServersCount,
           LocalHMaster.class, HRegionServer.class);
         ((LocalHMaster)cluster.getMaster(0)).setZKCluster(zooKeeperCluster);

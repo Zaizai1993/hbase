@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.apache.hadoop.hbase.ScheduledChore</OriginalElement>
+  <nodes>
+    <node x="2212.0" y="115.0">org.apache.hadoop.hbase.master.cleaner.ReplicationBarrierCleaner</node>
+    <node x="1539.0" y="115.0">org.apache.hadoop.hbase.master.janitor.CatalogJanitor</node>
+    <node x="730.0" y="115.0">org.apache.hadoop.hbase.master.balancer.BalancerChore</node>
+    <node x="1382.0" y="115.0">org.apache.hadoop.hbase.master.HbckChore</node>
+    <node x="1145.0" y="115.0">org.apache.hadoop.hbase.master.cleaner.SnapshotCleanerChore</node>
+    <node x="1982.0" y="115.0">org.apache.hadoop.hbase.mob.MobFileCleanerChore</node>
+    <node x="291.0" y="115.0">org.apache.hadoop.hbase.quotas.QuotaObserverChore</node>
+    <node x="0.0" y="115.0">org.apache.hadoop.hbase.quotas.SnapshotQuotaObserverChore</node>
+    <node x="1720.0" y="115.0">org.apache.hadoop.hbase.mob.MobFileCompactionChore</node>
+    <node x="518.0" y="115.0">org.apache.hadoop.hbase.master.balancer.ClusterStatusChore</node>
+    <node x="910.0" y="115.0">org.apache.hadoop.hbase.master.ClusterStatusPublisher</node>
+    <node x="1167.0" y="0.0">org.apache.hadoop.hbase.ScheduledChore</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.apache.hadoop.hbase.master.balancer.ClusterStatusChore" target="org.apache.hadoop.hbase.ScheduledChore">
+      <point x="0.0" y="-17.5" />
+      <point x="614.0" y="75.0" />
+      <point x="1206.3181818181818" y="75.0" />
+      <point x="-47.181818181818244" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.mob.MobFileCompactionChore" target="org.apache.hadoop.hbase.ScheduledChore">
+      <point x="0.0" y="-17.5" />
+      <point x="1841.0" y="75.0" />
+      <point x="1300.6818181818182" y="75.0" />
+      <point x="47.181818181818244" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.quotas.QuotaObserverChore" target="org.apache.hadoop.hbase.ScheduledChore">
+      <point x="0.0" y="-17.5" />
+      <point x="394.5" y="65.0" />
+      <point x="1190.590909090909" y="65.0" />
+      <point x="-62.90909090909099" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.master.cleaner.ReplicationBarrierCleaner" target="org.apache.hadoop.hbase.ScheduledChore">
+      <point x="0.0" y="-17.5" />
+      <point x="2330.0" y="55.0" />
+      <point x="1332.1363636363635" y="55.0" />
+      <point x="78.63636363636351" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.master.cleaner.SnapshotCleanerChore" target="org.apache.hadoop.hbase.ScheduledChore">
+      <point x="0.0" y="-17.5" />
+      <point x="0.0" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.master.janitor.CatalogJanitor" target="org.apache.hadoop.hbase.ScheduledChore">
+      <point x="0.0" y="-17.5" />
+      <point x="1619.5" y="85.0" />
+      <point x="1284.9545454545455" y="85.0" />
+      <point x="31.454545454545496" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.mob.MobFileCleanerChore" target="org.apache.hadoop.hbase.ScheduledChore">
+      <point x="0.0" y="-17.5" />
+      <point x="2087.0" y="65.0" />
+      <point x="1316.409090909091" y="65.0" />
+      <point x="62.90909090909099" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.master.HbckChore" target="org.apache.hadoop.hbase.ScheduledChore">
+      <point x="0.0" y="-17.5" />
+      <point x="1450.5" y="95.0" />
+      <point x="1269.2272727272727" y="95.0" />
+      <point x="15.727272727272748" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.master.balancer.BalancerChore" target="org.apache.hadoop.hbase.ScheduledChore">
+      <point x="0.0" y="-17.5" />
+      <point x="810.0" y="85.0" />
+      <point x="1222.0454545454545" y="85.0" />
+      <point x="-31.454545454545496" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.master.ClusterStatusPublisher" target="org.apache.hadoop.hbase.ScheduledChore">
+      <point x="0.0" y="-17.5" />
+      <point x="1017.5" y="95.0" />
+      <point x="1237.7727272727273" y="95.0" />
+      <point x="-15.727272727272748" y="17.5" />
+    </edge>
+    <edge source="org.apache.hadoop.hbase.quotas.SnapshotQuotaObserverChore" target="org.apache.hadoop.hbase.ScheduledChore">
+      <point x="0.0" y="-17.5" />
+      <point x="135.5" y="55.0" />
+      <point x="1174.8636363636365" y="55.0" />
+      <point x="-78.63636363636351" y="17.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="1182.0" y="60.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
