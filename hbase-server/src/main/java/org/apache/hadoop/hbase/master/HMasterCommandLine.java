@@ -169,6 +169,7 @@ public class HMasterCommandLine extends ServerCommandLine {
       // If 'local', defer to LocalHBaseCluster instance.  Starts master
       // and regionserver both in the one JVM.
       if (LocalHBaseCluster.isLocal(conf)) {
+        //启动本地集群
         DefaultMetricsSystem.setMiniClusterMode(true);
         final MiniZooKeeperCluster zooKeeperCluster = new MiniZooKeeperCluster(conf);
         File zkDataPath = new File(conf.get(HConstants.ZOOKEEPER_DATA_DIR));
@@ -244,7 +245,9 @@ public class HMasterCommandLine extends ServerCommandLine {
         LocalHBaseCluster cluster = new LocalHBaseCluster(conf, mastersCount, regionServersCount,
           LocalHMaster.class, HRegionServer.class);
         ((LocalHMaster)cluster.getMaster(0)).setZKCluster(zooKeeperCluster);
+        //启动本地hbase集群
         cluster.startup();
+        //等待MasterThread启动完成-即调用的所有子线程都启动完成
         waitOnMasterThreads(cluster);
       } else {
         logProcessInfo(getConf());

@@ -258,6 +258,7 @@ public abstract class HBaseServerBase<R extends HBaseRpcServicesBase<?>> extends
     this.configurationManager = new ConfigurationManager();
     setupWindows(conf, configurationManager);
 
+    //初始化文件系统
     initializeFileSystem();
 
     this.choreService = new ChoreService(getName(), true);
@@ -312,6 +313,7 @@ public abstract class HBaseServerBase<R extends HBaseRpcServicesBase<?>> extends
         this.infoServer = new InfoServer(getProcessName(), addr, port, false, this.conf);
         infoServer.addPrivilegedServlet("dump", "/dump", getDumpServlet());
         configureInfoServer(infoServer);
+        //启动 Hbase页面管理服务
         this.infoServer.start();
         break;
       } catch (BindException e) {

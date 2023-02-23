@@ -405,6 +405,7 @@ public class HMaster extends HBaseServerBase<MasterRpcServices> implements Maste
         try {
           //启动hbase的Info Server
           int infoPort = putUpJettyServer();
+          //启动masterserver
           startActiveMasterManager(infoPort);
         } catch (Throwable t) {
           // Make sure we log the exception.

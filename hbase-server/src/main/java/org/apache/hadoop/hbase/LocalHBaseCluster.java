@@ -178,11 +178,13 @@ public class LocalHBaseCluster {
     // Start the HMasters.
     int i;
     for (i = 0; i < noMasters; i++) {
+      //构建Hmaster的线程对象MasterThread
       addMaster(new Configuration(conf), i);
     }
     for (int j = 0; j < noAlwaysStandByMasters; j++) {
       Configuration c = new Configuration(conf);
       c.set(HConstants.MASTER_IMPL, "org.apache.hadoop.hbase.master.AlwaysStandByHMaster");
+      //构建Hmaster备份节点的线程对象MasterThread
       addMaster(c, i + j);
     }
     // Start the HRegionServers.
@@ -191,6 +193,7 @@ public class LocalHBaseCluster {
        regionServerClass);
 
     for (int j = 0; j < noRegionServers; j++) {
+      //构建HRegionServer的线程对象RegionServerThread
       addRegionServer(new Configuration(conf), j);
     }
   }
