@@ -364,6 +364,7 @@ public class HMaster extends HBaseServerBase<MasterRpcServices> implements Maste
           getChoreService().scheduleChore(clusterStatusPublisherChore);
         }
       }
+      //Master管理器在此处初始化
       this.activeMasterManager = createActiveMasterManager(zooKeeper, serverName, this);
       cachedClusterId = new CachedClusterId(this, conf);
       this.regionServerTracker = new RegionServerTracker(zooKeeper, this);
@@ -400,10 +401,12 @@ public class HMaster extends HBaseServerBase<MasterRpcServices> implements Maste
   @Override
   public void run() {
     try {
+      //TODO 暂时还没研究清楚，应该是对HRegion和HStore有啥监控
       registerConfigurationObservers();
+      //启动后台守护线程去启动Hmaster
       Threads.setDaemonThreadRunning(new Thread(() -> {
         try {
-          //启动hbase的Info Server
+          //启动hbase的Info Server，成功返回端口号，失败返回-1
           int infoPort = putUpJettyServer();
           //启动masterserver
           startActiveMasterManager(infoPort);
@@ -417,6 +420,7 @@ public class HMaster extends HBaseServerBase<MasterRpcServices> implements Maste
           }
         }
       }), getName() + ":becomeActiveMaster");
+      //Hmaster正常启动后会阻塞在这两
       while (!isStopped() && !isAborted()) {
         sleeper.sleep();
       }
@@ -789,6 +793,7 @@ public class HMaster extends HBaseServerBase<MasterRpcServices> implements Maste
         .collect(Collectors.groupingBy(p -> p.getClass()));
 
     // Create Assignment Manager
+    //region分配管理器创建与启动
     this.assignmentManager = createAssignmentManager(this, masterRegion);
     this.assignmentManager.start();
     // TODO: TRSP can perform as the sub procedure for other procedures, so even if it is marked as
@@ -862,6 +867,7 @@ public class HMaster extends HBaseServerBase<MasterRpcServices> implements Maste
     }
 
     // initialize load balancer
+    //负载均衡器初始化
     this.balancer.setMasterServices(this);
     this.balancer.initialize();
     this.balancer.updateClusterMetrics(getClusterMetricsWithoutCoprocessor());
@@ -882,6 +888,7 @@ public class HMaster extends HBaseServerBase<MasterRpcServices> implements Maste
     String statusStr = "Wait for region servers to report in";
     status.setStatus(statusStr);
     LOG.info(Objects.toString(status));
+    //等待RegionServer服务启动
     waitForRegionServers(status);
 
     // Check if master is shutting down because issue initializing regionservers or balancer.
@@ -2148,6 +2155,7 @@ public class HMaster extends HBaseServerBase<MasterRpcServices> implements Maste
     * this node for us since it is ephemeral.
     */
     LOG.info("Adding backup master ZNode " + backupZNode);
+    //想zk注册备份Master临时节点
     if (!MasterAddressTracker.setMasterAddress(zooKeeper, backupZNode, serverName, infoPort)) {
       LOG.warn("Failed create of " + backupZNode + " by " + serverName);
     }

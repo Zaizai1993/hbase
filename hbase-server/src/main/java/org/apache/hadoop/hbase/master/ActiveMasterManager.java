@@ -231,11 +231,13 @@ public class ActiveMasterManager extends ZKListener {
       int checkInterval, MonitoredTask startupStatus) {
     String backupZNode = ZNodePaths.joinZNode(
       this.watcher.getZNodePaths().backupMasterAddressesZNode, this.sn.toString());
+    //执行主节点激活操作
     while (!(master.isAborted() || master.isStopped())) {
       startupStatus.setStatus("Trying to register in ZK as active master");
       // Try to become the active master, watch if there is another master.
       // Write out our ServerName as versioned bytes.
       try {
+        //将主节点信息注册在zk的临时节点中
         if (MasterAddressTracker.setMasterAddress(this.watcher,
             this.watcher.getZNodePaths().masterAddressZNode, this.sn, infoPort)) {
 
@@ -246,6 +248,7 @@ public class ActiveMasterManager extends ZKListener {
             ZKUtil.deleteNodeFailSilent(this.watcher, backupZNode);
           }
           // Save the znode in a file, this will allow to check if we crash in the launch scripts
+          //本地磁盘创建临时节点，内容是服务名称
           ZNodeClearer.writeMyEphemeralNodeOnDisk(this.sn.toString());
 
           // We are the master, return

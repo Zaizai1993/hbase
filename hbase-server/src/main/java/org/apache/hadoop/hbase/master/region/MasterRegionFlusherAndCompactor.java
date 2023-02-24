@@ -113,6 +113,7 @@ class MasterRegionFlusherAndCompactor implements Closeable {
     this.compactMin = compactMin;
     this.globalArchivePath = globalArchivePath;
     this.archivedHFileSuffix = archivedHFileSuffix;
+    //刷写线程
     flushThread = new Thread(this::flushLoop, region.getRegionInfo().getTable() + "-Flusher");
     flushThread.setDaemon(true);
     flushThread.start();
@@ -153,6 +154,7 @@ class MasterRegionFlusherAndCompactor implements Closeable {
 
   private void compact() {
     try {
+      //region合并
       region.compact(true);
       moveHFileToGlobalArchiveDir();
     } catch (IOException e) {
@@ -204,6 +206,7 @@ class MasterRegionFlusherAndCompactor implements Closeable {
       assert flushRequest;
       changesAfterLastFlush.set(0);
       try {
+        //TODO 缓存刷写
         region.flush(true);
         lastFlushTime = EnvironmentEdgeManager.currentTime();
       } catch (IOException e) {

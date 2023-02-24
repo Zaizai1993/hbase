@@ -236,6 +236,7 @@ public abstract class HBaseServerBase<R extends HBaseRpcServicesBase<?>> extends
     this.startcode = EnvironmentEdgeManager.currentTime();
     this.userProvider = UserProvider.instantiate(conf);
     this.msgInterval = conf.getInt("hbase.regionserver.msginterval", 3 * 1000);
+    //休眠控制器，默认都是休眠三秒
     this.sleeper = new Sleeper(this.msgInterval, this);
     this.namedQueueRecorder = createNamedQueueRecord();
     this.rpcServices = createRpcServices();

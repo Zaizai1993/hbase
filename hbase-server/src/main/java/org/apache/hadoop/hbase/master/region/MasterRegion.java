@@ -298,6 +298,7 @@ public final class MasterRegion {
     MasterRegionWALRoller walRoller = MasterRegionWALRoller.create(
       td.getTableName() + "-WAL-Roller", conf, server, walFs, walRootDir, globalWALRootDir,
       params.archivedWalSuffix(), params.rollPeriodMs(), params.flushSize());
+    //启动WAL日志处理器-暂时先这么叫
     walRoller.start();
 
     WALFactory walFactory = new WALFactory(conf, server.getServerName().toString(), server, false);
@@ -309,6 +310,7 @@ public final class MasterRegion {
         server.getServerName().toString());
     } else {
       // bootstrapping...
+      //创建region
       region = bootstrap(conf, td, fs, rootDir, walFs, walRootDir, walFactory, walRoller,
         server.getServerName().toString());
     }

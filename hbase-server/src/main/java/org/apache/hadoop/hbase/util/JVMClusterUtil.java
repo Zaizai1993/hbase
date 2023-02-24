@@ -177,6 +177,7 @@ public class JVMClusterUtil {
 
     for (JVMClusterUtil.MasterThread t : masters) {
       configuration = t.getMaster().getConfiguration();
+      //启动HMaster线程
       t.start();
     }
 
@@ -185,10 +186,12 @@ public class JVMClusterUtil {
     //  then to succeed on their connection to master
     final int startTimeout = configuration != null ? Integer.parseInt(
         configuration.get("hbase.master.start.timeout.localHBaseCluster", "30000")) : 30000;
+    //通过Lambda表达式实现Supplier接口等待Hmaster正常启动
     waitForEvent(startTimeout, "active", () -> findActiveMaster(masters) != null);
 
     if (regionservers != null) {
       for (JVMClusterUtil.RegionServerThread t: regionservers) {
+        //启动HRegionServer
         t.start();
       }
     }
