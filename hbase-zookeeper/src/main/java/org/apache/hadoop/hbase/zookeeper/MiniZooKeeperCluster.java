@@ -258,7 +258,7 @@ public class MiniZooKeeperCluster {
         break;
       }
 
-      // Start up this ZK server. Dump its stats.
+      // Start up this ZK server. Dump its stats. 启动本地standalone模式的zk
       standaloneServerFactory.startup(server);
       LOG.info("Started connectionTimeout={}, dir={}, {}", connectionTimeout, dir,
         getServerConfigurationOnOneLine(server));

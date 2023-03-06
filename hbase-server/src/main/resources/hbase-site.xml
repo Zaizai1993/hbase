@@ -89,7 +89,7 @@
   </property>
   <property>
     <name>hbase.master.info.port</name>
-    <value>60010</value>
+    <value>60010</value><!--Hbase的Master的端口.默认: 60000-->
   </property>
   <property>
     <name>hbase.regionserver.port</name>

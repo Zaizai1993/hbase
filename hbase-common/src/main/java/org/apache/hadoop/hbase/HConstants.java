@@ -230,7 +230,7 @@ public final class HConstants {
   public static final boolean DEFAULT_CLIENT_ZOOKEEPER_OBSERVER_MODE = false;
 
   /** Common prefix of ZooKeeper configuration properties */
-  public static final String ZK_CFG_PROPERTY_PREFIX =
+  public static final String  ZK_CFG_PROPERTY_PREFIX =
       "hbase.zookeeper.property.";
 
   public static final int ZK_CFG_PROPERTY_PREFIX_LEN =
@@ -243,7 +243,7 @@ public final class HConstants {
   public static final String CLIENT_PORT_STR = "clientPort";
 
   /** Parameter name for the client port that the zookeeper listens on */
-  public static final String ZOOKEEPER_CLIENT_PORT =
+  public static final String  ZOOKEEPER_CLIENT_PORT =
       ZK_CFG_PROPERTY_PREFIX + CLIENT_PORT_STR;
 
   /** Default client port that the zookeeper listens on */
