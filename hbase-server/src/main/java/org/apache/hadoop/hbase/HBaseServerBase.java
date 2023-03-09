@@ -238,7 +238,9 @@ public abstract class HBaseServerBase<R extends HBaseRpcServicesBase<?>> extends
     this.msgInterval = conf.getInt("hbase.regionserver.msginterval", 3 * 1000);
     //休眠控制器，默认都是休眠三秒
     this.sleeper = new Sleeper(this.msgInterval, this);
+    //初始化WAL预写日志的缓存队列,Hregionserver是null
     this.namedQueueRecorder = createNamedQueueRecord();
+    //创建NettyRpcServer，rpcScheduler,后续启动
     this.rpcServices = createRpcServices();
     useThisHostnameInstead = getUseThisHostnameInstead(conf);
     InetSocketAddress addr = rpcServices.getSocketAddress();
@@ -253,6 +255,7 @@ public abstract class HBaseServerBase<R extends HBaseRpcServicesBase<?>> extends
     // init superusers and add the server principal (if using security)
     // or process owner as default super user.
     Superusers.initialize(conf);
+    //初始化Master的zk监听器
     zooKeeper =
       new ZKWatcher(conf, getProcessName() + ":" + addr.getPort(), this, canCreateBaseZNode());
 
@@ -262,7 +265,15 @@ public abstract class HBaseServerBase<R extends HBaseRpcServicesBase<?>> extends
     //初始化文件系统
     initializeFileSystem();
 
+    //ChoreService是HBase的一个基于时间的调度器，它可以定期运行一些任务，比如清理缓存、刷写日志等。
+    // 它是HBase的一个核心组件，主要用于周期性地执行一些任务，确保HBase集群的稳定性和高可用性。
+    //ChoreService类的主要作用是管理一组周期性任务，这些任务可以是Chore对象或ScheduledChore对象。
+    // Chore是一个接口，它定义了一个chore()方法，用于执行周期性任务。
+    // ScheduledChore是Chore接口的一个具体实现，它可以指定任务的周期性执行时间，以及是否在HBase Master节点上执行。
+    //ChoreService类中包含一个scheduleChore()方法，用于将一个ScheduledChore对象添加到任务列表中，以便后续周期性执行。
+    // ChoreService类还提供了一些其他方法，如cancelChore()方法，用于取消指定的周期性任务，getScheduledChores()方法，用于获取当前所有的周期性任务列表等。
     this.choreService = new ChoreService(getName(), true);
+    //各种服务线程管理类
     this.executorService = new ExecutorService(getName());
 
     this.metaRegionLocationCache = new MetaRegionLocationCache(zooKeeper);
@@ -280,6 +291,7 @@ public abstract class HBaseServerBase<R extends HBaseRpcServicesBase<?>> extends
       csm = null;
       clusterStatusTracker = null;
     }
+    //启动Master或者regionServer的web前端服务
     putUpWebUI();
   }
 

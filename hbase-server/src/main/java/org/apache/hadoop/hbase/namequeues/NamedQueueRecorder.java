@@ -53,6 +53,9 @@ public class NamedQueueRecorder {
 
   /**
    * Initialize disruptor with configurable ringbuffer size
+   * NamedQueueRecorder是HBase中的一个类，用于在Region Server（RS）中维护一个或多个队列，并将队列中的数据写入HBase的WAL中，以确保数据的可靠性和一致性。
+   * 具体来说，NamedQueueRecorder维护了一个名为queueName的队列，并在写入WAL时使用一个叫做RingBuffer的数据结构来对队列进行缓冲，以提高写入效率。
+   * 当队列中的数据超过了RingBuffer的容量时，NamedQueueRecorder会将队列中的所有数据批量写入WAL中，并清空队列。
    */
   private NamedQueueRecorder(Configuration conf) {
 

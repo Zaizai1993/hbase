@@ -491,8 +491,10 @@ public class HRegionServer extends HBaseServerBase<RSRpcServices>
       this.retryPauseTime = conf.getLong(HConstants.HBASE_RPC_SHORTOPERATION_RETRY_PAUSE_TIME,
         HConstants.DEFAULT_HBASE_RPC_SHORTOPERATION_RETRY_PAUSE_TIME);
 
+      //用来记录一些RegionServer的实时信息
       regionServerAccounting = new RegionServerAccounting(conf);
 
+      //初始化读缓存
       blockCache = BlockCacheFactory.createBlockCache(conf);
       mobFileCache = new MobFileCache(conf);
 
@@ -501,6 +503,7 @@ public class HRegionServer extends HBaseServerBase<RSRpcServices>
 
       // If no master in cluster, skip trying to track one or look for a cluster status.
       if (!this.masterless) {
+        //HRegionServer的主节点监控器
         masterAddressTracker = new MasterAddressTracker(getZooKeeper(), this);
         masterAddressTracker.start();
       } else {

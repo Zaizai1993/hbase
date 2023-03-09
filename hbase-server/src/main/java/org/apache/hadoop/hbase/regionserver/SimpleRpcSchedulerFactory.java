@@ -32,6 +32,9 @@ import org.apache.hadoop.hbase.ipc.SimpleRpcScheduler;
 @InterfaceAudience.LimitedPrivate({HBaseInterfaceAudience.COPROC, HBaseInterfaceAudience.PHOENIX})
 @InterfaceStability.Evolving
 public class SimpleRpcSchedulerFactory implements RpcSchedulerFactory {
+  //这个方法用于创建一个新的RpcScheduler实例。其中，conf参数是HBase的配置对象，priority参数是一个优先级函数，abortable参数是一个可中止的对象。返回值是一个RpcScheduler实例。
+  //RpcSchedulerFactory接口的默认实现类是SimpleRpcSchedulerFactory。SimpleRpcSchedulerFactory实现了create方法，用于创建SimpleRpcScheduler实例。
+  // SimpleRpcScheduler是RpcScheduler的默认实现类，它采用FIFO（先进先出）调度算法，对所有请求进行排队处理。
   @Override
   public RpcScheduler create(Configuration conf, PriorityFunction priority, Abortable server) {
     int handlerCount = conf.getInt(HConstants.REGION_SERVER_HANDLER_COUNT,

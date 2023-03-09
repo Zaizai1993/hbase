@@ -307,6 +307,7 @@ public class HMaster extends HBaseServerBase<MasterRpcServices> implements Maste
    * active one.
    */
   public HMaster(final Configuration conf) throws IOException {
+    //初始化HBaseServerBase，包含缓存队列，zk监听器，rpc服务，scheduleChore的定时调度器，线程管理对象，web服务等
     super(conf, "Master");
     try {
       if (conf.getBoolean(MAINTENANCE_MODE, false)) {
@@ -335,6 +336,7 @@ public class HMaster extends HBaseServerBase<MasterRpcServices> implements Maste
         this.conf.set("mapreduce.task.attempt.id", "hb_m_" + this.serverName.toString());
       }
 
+      //初始化Hbase的监控类，主要用于收集和报告HBase Master节点的各种度量指标。MetricsMaster类提供了一组API，可用于查询和监视有关HBase Master的各种指标
       this.metricsMaster = new MetricsMaster(new MetricsMasterWrapperImpl(this));
 
       // preload table descriptor at startup
@@ -359,15 +361,18 @@ public class HMaster extends HBaseServerBase<MasterRpcServices> implements Maste
               ClusterStatusPublisher.DEFAULT_STATUS_PUBLISHER_CLASS +
               " is not set - not publishing status");
         } else {
+          //，ClusterStatusPublisher是一个组件，它负责收集集群的状态信息并将其发布给其他组件和监控工具。它定期轮询HBase集群的状态，并将状态信息发送到配置的监控系统或可视化工具中。
           clusterStatusPublisherChore = new ClusterStatusPublisher(this, conf, publisherClass);
           LOG.debug("Created {}", this.clusterStatusPublisherChore);
           getChoreService().scheduleChore(clusterStatusPublisherChore);
         }
       }
-      //Master管理器在此处初始化
+      //Master管理器在此处初始化，监控zk的activeMaster和backupMaster的信息
       this.activeMasterManager = createActiveMasterManager(zooKeeper, serverName, this);
       cachedClusterId = new CachedClusterId(this, conf);
+      //Hmaster的reginserver监控器，监控zk的regionserver的信息
       this.regionServerTracker = new RegionServerTracker(zooKeeper, this);
+      //启动NettyRpcServer
       this.rpcServices.start(zooKeeper);
     } catch (Throwable t) {
       // Make sure we log the exception. HMaster is often started via reflection and the
@@ -2175,6 +2180,7 @@ public class HMaster extends HBaseServerBase<MasterRpcServices> implements Maste
     status.setDescription("Master startup");
     try {
       if (activeMasterManager.blockUntilBecomingActiveMaster(timeout, status)) {
+        //完成已激活主节点的初始化工作
         finishActiveMasterInitialization(status);
       }
     } catch (Throwable t) {

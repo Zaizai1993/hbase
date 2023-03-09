@@ -3,87 +3,89 @@
   <ID>JAVA</ID>
   <OriginalElement>org.apache.hadoop.hbase.zookeeper.ZKListener</OriginalElement>
   <nodes>
-    <node x="0.0" y="180.0">org.apache.hadoop.hbase.master.AlwaysStandByHMaster.AlwaysStandByMasterManager</node>
-    <node x="1344.0" y="0.0">org.apache.hadoop.hbase.zookeeper.ZKListener</node>
-    <node x="1401.0" y="180.0">org.apache.hadoop.hbase.zookeeper.ClusterStatusTracker</node>
-    <node x="2023.5" y="95.0">org.apache.hadoop.hbase.master.RegionServerTracker</node>
-    <node x="999.0" y="180.0">org.apache.hadoop.hbase.zookeeper.LoadBalancerTracker</node>
-    <node x="747.0" y="180.0">org.apache.hadoop.hbase.zookeeper.SnapshotCleanupTracker</node>
-    <node x="1304.5" y="95.0">org.apache.hadoop.hbase.zookeeper.TestMasterAddressTracker.NodeCreationListener</node>
-    <node x="296.0" y="180.0">org.apache.hadoop.hbase.master.zksyncer.MasterAddressSyncer</node>
-    <node x="1535.5" y="95.0">org.apache.hadoop.hbase.master.DrainingServerTracker</node>
-    <node x="431.75" y="95.0">org.apache.hadoop.hbase.master.zksyncer.ClientZKSyncer</node>
-    <node x="526.0" y="180.0">org.apache.hadoop.hbase.master.zksyncer.MetaLocationSyncer</node>
-    <node x="1222.0" y="180.0">org.apache.hadoop.hbase.coprocessor.TestMasterCoprocessorExceptionWithRemove.MasterTracker</node>
-    <node x="31.5" y="95.0">org.apache.hadoop.hbase.master.ActiveMasterManager</node>
-    <node x="1117.5" y="95.0">org.apache.hadoop.hbase.zookeeper.ZKNodeTracker</node>
-    <node x="1768.5" y="95.0">org.apache.hadoop.hbase.backup.example.TableHFileArchiveTracker</node>
+    <node x="190.5" y="190.0">org.apache.hadoop.hbase.master.AlwaysStandByHMaster.AlwaysStandByMasterManager</node>
+    <node x="956.8125" y="0.0">org.apache.hadoop.hbase.zookeeper.ZKListener</node>
+    <node x="0.0" y="105.0">org.apache.hadoop.hbase.master.RegionServerTracker</node>
+    <node x="1339.5" y="190.0">org.apache.hadoop.hbase.zookeeper.ClusterStatusTracker</node>
+    <node x="1116.5" y="190.0">org.apache.hadoop.hbase.zookeeper.LoadBalancerTracker</node>
+    <node x="1560.5" y="190.0">org.apache.hadoop.hbase.zookeeper.SnapshotCleanupTracker</node>
+    <node x="1665.5" y="105.0">org.apache.hadoop.hbase.zookeeper.TestMasterAddressTracker.NodeCreationListener</node>
+    <node x="707.5" y="190.0">org.apache.hadoop.hbase.master.zksyncer.MasterAddressSyncer</node>
+    <node x="1432.5" y="105.0">org.apache.hadoop.hbase.master.DrainingServerTracker</node>
+    <node x="617.75" y="105.0">org.apache.hadoop.hbase.master.zksyncer.ClientZKSyncer</node>
+    <node x="486.49999999999994" y="190.0">org.apache.hadoop.hbase.master.zksyncer.MetaLocationSyncer</node>
+    <node x="937.5" y="190.0">org.apache.hadoop.hbase.coprocessor.TestMasterCoprocessorExceptionWithRemove.MasterTracker</node>
+    <node x="1245.5" y="105.0">org.apache.hadoop.hbase.zookeeper.ZKNodeTracker</node>
+    <node x="222.0" y="105.0">org.apache.hadoop.hbase.master.ActiveMasterManager</node>
+    <node x="944.235119047619" y="105.0">org.apache.hadoop.hbase.backup.example.TableHFileArchiveTracker</node>
   </nodes>
   <notes />
   <edges>
     <edge source="org.apache.hadoop.hbase.master.zksyncer.MetaLocationSyncer" target="org.apache.hadoop.hbase.master.zksyncer.ClientZKSyncer">
       <point x="0.0" y="-17.5" />
-      <point x="626.5" y="160.0" />
-      <point x="554.75" y="160.0" />
-      <point x="41.0" y="17.5" />
+      <point x="587.0" y="170.0" />
+      <point x="658.75" y="170.0" />
+      <point x="-41.0" y="17.5" />
     </edge>
     <edge source="org.apache.hadoop.hbase.master.DrainingServerTracker" target="org.apache.hadoop.hbase.zookeeper.ZKListener">
       <point x="0.0" y="-17.5" />
-      <point x="1642.0" y="75.0" />
-      <point x="1428.857142857143" y="75.0" />
-      <point x="18.85714285714289" y="17.5" />
+      <point x="1539.0" y="65.0" />
+      <point x="1060.5267857142858" y="65.0" />
+      <point x="37.71428571428578" y="17.5" />
     </edge>
     <edge source="org.apache.hadoop.hbase.coprocessor.TestMasterCoprocessorExceptionWithRemove.MasterTracker" target="org.apache.hadoop.hbase.zookeeper.ZKNodeTracker">
       <point x="0.0" y="-17.5" />
-      <point x="1301.5" y="160.0" />
-      <point x="1221.875" y="160.0" />
-      <point x="20.875" y="17.5" />
+      <point x="1017.0" y="160.0" />
+      <point x="1266.375" y="160.0" />
+      <point x="-62.625" y="17.5" />
     </edge>
     <edge source="org.apache.hadoop.hbase.zookeeper.TestMasterAddressTracker.NodeCreationListener" target="org.apache.hadoop.hbase.zookeeper.ZKListener">
       <point x="0.0" y="-17.5" />
-      <point x="0.0" y="17.5" />
+      <point x="1771.0" y="55.0" />
+      <point x="1079.3839285714284" y="55.0" />
+      <point x="56.571428571428555" y="17.5" />
     </edge>
     <edge source="org.apache.hadoop.hbase.backup.example.TableHFileArchiveTracker" target="org.apache.hadoop.hbase.zookeeper.ZKListener">
       <point x="0.0" y="-17.5" />
-      <point x="1886.0" y="65.0" />
-      <point x="1447.7142857142858" y="65.0" />
-      <point x="37.71428571428578" y="17.5" />
+      <point x="1061.735119047619" y="85.0" />
+      <point x="1022.8125" y="85.0" />
+      <point x="0.0" y="17.5" />
     </edge>
     <edge source="org.apache.hadoop.hbase.master.ActiveMasterManager" target="org.apache.hadoop.hbase.zookeeper.ZKListener">
       <point x="0.0" y="-17.5" />
-      <point x="138.0" y="55.0" />
-      <point x="1353.4285714285716" y="55.0" />
-      <point x="-56.571428571428555" y="17.5" />
+      <point x="328.5" y="75.0" />
+      <point x="985.0982142857142" y="75.0" />
+      <point x="-37.714285714285666" y="17.5" />
     </edge>
     <edge source="org.apache.hadoop.hbase.master.RegionServerTracker" target="org.apache.hadoop.hbase.zookeeper.ZKListener">
       <point x="0.0" y="-17.5" />
-      <point x="2124.5" y="55.0" />
-      <point x="1466.5714285714284" y="55.0" />
-      <point x="56.571428571428555" y="17.5" />
+      <point x="101.0" y="65.0" />
+      <point x="966.2410714285713" y="65.0" />
+      <point x="-56.571428571428555" y="17.5" />
     </edge>
     <edge source="org.apache.hadoop.hbase.zookeeper.ClusterStatusTracker" target="org.apache.hadoop.hbase.zookeeper.ZKNodeTracker">
       <point x="0.0" y="-17.5" />
-      <point x="1501.5" y="150.0" />
-      <point x="1263.625" y="150.0" />
-      <point x="62.625" y="17.5" />
+      <point x="1440.0" y="170.0" />
+      <point x="1349.875" y="170.0" />
+      <point x="20.875" y="17.5" />
     </edge>
     <edge source="org.apache.hadoop.hbase.master.zksyncer.ClientZKSyncer" target="org.apache.hadoop.hbase.zookeeper.ZKListener">
       <point x="0.0" y="-17.5" />
-      <point x="513.75" y="65.0" />
-      <point x="1372.2857142857142" y="65.0" />
-      <point x="-37.714285714285666" y="17.5" />
+      <point x="699.75" y="85.0" />
+      <point x="1003.9553571428571" y="85.0" />
+      <point x="-18.85714285714289" y="17.5" />
     </edge>
     <edge source="org.apache.hadoop.hbase.zookeeper.ZKNodeTracker" target="org.apache.hadoop.hbase.zookeeper.ZKListener">
       <point x="0.0" y="-17.5" />
-      <point x="1201.0" y="75.0" />
-      <point x="1391.142857142857" y="75.0" />
-      <point x="-18.85714285714289" y="17.5" />
+      <point x="1329.0" y="75.0" />
+      <point x="1041.669642857143" y="75.0" />
+      <point x="18.85714285714289" y="17.5" />
     </edge>
     <edge source="org.apache.hadoop.hbase.zookeeper.SnapshotCleanupTracker" target="org.apache.hadoop.hbase.zookeeper.ZKNodeTracker">
       <point x="0.0" y="-17.5" />
-      <point x="863.0" y="150.0" />
-      <point x="1138.375" y="150.0" />
-      <point x="-62.625" y="17.5" />
+      <point x="1676.5" y="160.0" />
+      <point x="1391.625" y="160.0" />
+      <point x="62.625" y="17.5" />
     </edge>
     <edge source="org.apache.hadoop.hbase.master.AlwaysStandByHMaster.AlwaysStandByMasterManager" target="org.apache.hadoop.hbase.master.ActiveMasterManager">
       <point x="0.0" y="-17.5" />
@@ -91,18 +93,18 @@
     </edge>
     <edge source="org.apache.hadoop.hbase.zookeeper.LoadBalancerTracker" target="org.apache.hadoop.hbase.zookeeper.ZKNodeTracker">
       <point x="0.0" y="-17.5" />
-      <point x="1100.5" y="160.0" />
-      <point x="1180.125" y="160.0" />
+      <point x="1218.0" y="170.0" />
+      <point x="1308.125" y="170.0" />
       <point x="-20.875" y="17.5" />
     </edge>
     <edge source="org.apache.hadoop.hbase.master.zksyncer.MasterAddressSyncer" target="org.apache.hadoop.hbase.master.zksyncer.ClientZKSyncer">
       <point x="0.0" y="-17.5" />
-      <point x="401.0" y="160.0" />
-      <point x="472.75" y="160.0" />
-      <point x="-41.0" y="17.5" />
+      <point x="812.5" y="170.0" />
+      <point x="740.75" y="170.0" />
+      <point x="41.0" y="17.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.7551622418879056" x="1007.0" y="179.669921875" />
+  <settings layout="Hierarchic Group" zoom="0.9551622418879055" x="1112.279751638496" y="207.33102538051915" />
   <SelectedNodes />
   <Categories />
   <SCOPE>All</SCOPE>

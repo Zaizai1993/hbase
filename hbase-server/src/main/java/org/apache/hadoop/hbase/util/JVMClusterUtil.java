@@ -164,7 +164,7 @@ public class JVMClusterUtil {
    * @param regionservers
    * @return Address to use contacting primary master.
    */
-  public static String startup(final List<JVMClusterUtil.MasterThread> masters,
+  public static String  startup(final List<JVMClusterUtil.MasterThread> masters,
       final List<JVMClusterUtil.RegionServerThread> regionservers) throws IOException {
     // Implementation note: This method relies on timed sleeps in a loop. It's not great, and
     // should probably be re-written to use actual synchronization objects, but it's ok for now

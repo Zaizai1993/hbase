@@ -119,6 +119,8 @@ public abstract class HBaseRpcServicesBase<S extends HBaseServerBase<?>>
     Configuration conf = server.getConfiguration();
     final RpcSchedulerFactory rpcSchedulerFactory;
     try {
+      //RpcSchedulerFactory是负责生成RpcScheduler实例的工厂类。
+      // RpcScheduler实例用于管理RPC请求的调度和处理，这是HBase客户端与HBase集群之间通信的重要组件。
       rpcSchedulerFactory = getRpcSchedulerFactoryClass(conf).asSubclass(RpcSchedulerFactory.class)
         .getDeclaredConstructor().newInstance();
     } catch (NoSuchMethodException | InvocationTargetException | InstantiationException
@@ -145,6 +147,7 @@ public abstract class HBaseRpcServicesBase<S extends HBaseServerBase<?>>
       conf.getBoolean(ByteBuffAllocator.ALLOCATOR_POOL_ENABLED_KEY, defaultReservoirEnabled());
     try {
       // use final bindAddress for this server.
+      //反射生成NettyRpcServer
       rpcServer = RpcServerFactory.createRpcServer(server, name, getServices(), bindAddress, conf,
         rpcSchedulerFactory.create(conf, this, server), reservoirEnabled);
     } catch (BindException be) {
@@ -189,6 +192,7 @@ public abstract class HBaseRpcServicesBase<S extends HBaseServerBase<?>>
     } catch (KeeperException e) {
       LOG.error("ZooKeeper permission watcher initialization failed", e);
     }
+    //启动SimpleRpcScheduler
     rpcServer.start();
   }
 

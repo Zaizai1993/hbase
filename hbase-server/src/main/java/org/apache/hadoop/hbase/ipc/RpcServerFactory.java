@@ -63,6 +63,7 @@ public class RpcServerFactory {
       servicesList.append(sd.getFullName());
     }
     LOG.info("Creating " + rpcServerClass + " hosting " + servicesList);
+    //反射生成NettyRpcServer
     return ReflectionUtils.instantiateWithCustomCtor(rpcServerClass,
         new Class[] { Server.class, String.class, List.class,
           InetSocketAddress.class, Configuration.class, RpcScheduler.class, boolean.class },

@@ -34,6 +34,27 @@ import org.apache.hadoop.hbase.procedure2.ProcedureMetrics;
  * <p>
  * This class has a number of metrics variables that are publicly accessible;
  * these variables (objects) have methods to update their values.
+ * 主要用于收集和报告HBase Master节点的各种度量指标。MetricsMaster类提供了一组API，可用于查询和监视有关HBase Master的各种指标，包括：
+ *
+ * HMasterStartTime：HBase Master的启动时间。
+ *
+ * averageLoad：HBase Master的平均负载。
+ *
+ * clusterRequests：HBase Master节点处理的请求数量。
+ *
+ * numRegionServers：HBase集群中RegionServer节点的数量。
+ *
+ * numDeadRegionServers：HBase集群中已停止的RegionServer节点的数量。
+ *
+ * numRegionSplitRequests：HBase Master节点处理的区域拆分请求数量。
+ *
+ * numRegionMergeRequests：HBase Master节点处理的区域合并请求数量。
+ *
+ * splitPlanCount：HBase Master节点计划的区域拆分数量。
+ *
+ * mergePlanCount：HBase Master节点计划的区域合并数量。
+ *
+ * numNamespace：HBase命名空间的数量。
  */
 @InterfaceStability.Evolving
 @InterfaceAudience.Private
